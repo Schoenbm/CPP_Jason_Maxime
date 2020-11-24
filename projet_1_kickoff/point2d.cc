@@ -13,10 +13,10 @@ class point2d{
 		explicit point2d(const int pX, const int pY): x(pX), y(pY)
 		{}
 
-		int getX() const;
-		int getY() const;
+		unsigned getX() const {return x;}
+		unsigned getY() const {return y;}
 
 	private:
-		int x{0};
-		int y{0};
+		unsigned x{0};
+		unsigned y{0};
 };
