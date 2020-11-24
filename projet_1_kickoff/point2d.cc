@@ -16,6 +16,9 @@ class point2d{
 		unsigned getX() const {return x;}
 		unsigned getY() const {return y;}
 
+		void setX(unsigned pX){ x = pX;}
+		void setY(unsigned pY){ y = pY;}
+
 	private:
 		unsigned x{0};
 		unsigned y{0};

@@ -12,6 +12,9 @@ class point2d{
 		unsigned getX() const;
 		unsigned getY() const;
 
+		void setX(unsigned pX);
+		void setY(unsigned pY);
+
 	private:
 		unsigned x;
 		unsigned y;

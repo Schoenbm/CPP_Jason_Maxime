@@ -2,8 +2,9 @@
 
 #include <cstddef> // std::size_t
 
-struct point2d;
-struct box2d;
+class point2d;
+class box2d;
+
 class box2d_iterator {
 public:
   box2d_iterator()                      = default;
@@ -19,5 +20,6 @@ public:
   operator point2d() const;
 
 private:
-  // todo
+  point2d current_p;
+  box2d box;
 };
