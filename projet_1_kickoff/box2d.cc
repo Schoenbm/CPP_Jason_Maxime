@@ -1,11 +1,9 @@
 #include <cstddef> // std::size_t
 #include <iosfwd>  // std::ostream fwd declaration
-#include "point2d.hh"
-#include "box2d_iterator.hh"
-#include "box2d.hh"
+
 
 // Fwd declarations
-struct point2d;
+class point2d;
 class box2d_iterator;
 class neighb2d_iterator;
 
@@ -54,7 +52,7 @@ public:
 private:
   std::size_t nrows;
   std::size_t ncols;
-  p_iterator iterator;
+  p_iterator& iterator;
 };
 
 
