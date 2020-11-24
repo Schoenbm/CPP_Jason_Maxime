@@ -3,7 +3,7 @@
 #include <cstddef> // std::size_t
 #include <vector>  // std::vector
 
-struct point2d;
+class point2d;
 
 class neighb2d_iterator {
 public:
@@ -22,5 +22,7 @@ public:
   operator point2d() const;
 
 private:
-  // todo
+  const static std::vector<point2d> delta_;
+  unsigned i_;
+  point2d p_;
 };
