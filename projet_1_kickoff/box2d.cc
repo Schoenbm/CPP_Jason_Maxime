@@ -1,14 +1,12 @@
 #include <cstddef> // std::size_t
 #include <iosfwd>  // std::ostream fwd declaration
 #include "point2d.hh"
-#include "neighb2d_iterator.hh"
-#include "box2d_iterator.hh"
 
 struct box2d {
 
   bool has(const point2d& p) const
   {
-	  return( p.getX() < rows && p.getY() < cols);
+	  return( p.x < rows && p.y < cols);
   }
 
   unsigned rows;

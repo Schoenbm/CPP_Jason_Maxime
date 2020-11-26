@@ -10,7 +10,7 @@ class neighb2d_iterator;
 
 
 struct box2d {
-public:
+  public:
 
   bool has(const point2d& p) const;
 

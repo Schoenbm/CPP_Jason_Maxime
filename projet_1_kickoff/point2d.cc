@@ -1,7 +1,7 @@
 #include <iosfwd> // std::ostream fwd declaration
 
 
-class point2d{
+struct point2d{
 		unsigned x;
 		unsigned y;
 };
