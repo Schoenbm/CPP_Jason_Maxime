@@ -35,7 +35,7 @@ public:
 
   operator point2d() const
   {
-	current_p;
+	return current_p;
   }
 
 private:
