@@ -15,7 +15,7 @@ clean:
 	$(CC) $(CCFLAGS) $< $(OBJ) -lm -o $@
 
 projetc++ : main.o
-	    $(CC) $(CCFLAGS) -o projetc++ main.o distance_map.o image2d.o box2d.o box2d_iterator.o neighb2d_iterator.o point2d.o
+	    $(CC) $(CCFLAGS) main.o distance_map.o image2d.o box2d.o box2d_iterator.o neighb2d_iterator.o point2d.o -o projetc++
 		
 main.o : distance_map.hh image2d.hh distance_map.cc image2d.cc main.cc
 		$(CC) $(CCFLAGS) -c main.cc
