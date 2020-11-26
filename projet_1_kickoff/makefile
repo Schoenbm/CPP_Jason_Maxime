@@ -7,7 +7,7 @@ obj:	$(OBJ)
 
 
 clean:
-	rm -f $(OBJ); rm -f *.exe
+	rm -f $(OBJ); rm -f *.o
 
 .SUFFIXES:	.exe
 
@@ -33,6 +33,7 @@ image2d.o : box2d.hh box2d.cc utils.hh
 		$(CC) $(CCFLAGS) -c image2d.cc
 		
 neighb2d_iterator.o : point2d.hh point2d.cc box2d.hh box2d.cc box2d_iterator.hh box2d_iterator.cc
+		$(CC) $(CCFLAGS) -c neighb2d_iterator.cc
 
 point2d.o : point2d.hh
 		$(CC) $(CCFLAGS) -c point2d.cc
