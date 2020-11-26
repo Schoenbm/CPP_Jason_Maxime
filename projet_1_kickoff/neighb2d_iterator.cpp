@@ -1,9 +1,9 @@
-#pragma once
-
 #include <cstddef> // std::size_t
 #include <vector>  // std::vector
 
 #include "point2d.hh"
+#include "box2d.hh"
+#include "box2d_iterator.hh"
 
 class neighb2d_iterator {
 public:
@@ -27,8 +27,7 @@ public:
   }
 
   explicit neighb2d_iterator(const point2d& p)
-  {
-  	
+  { 	
   	i_ = 0;
   	center_at(p);
   }
@@ -40,7 +39,16 @@ public:
 
   void start()
   {
+		int p_x = p_.x;
+		int p_y = p_.y;
+		for(int i = 0; i <= 2; i++){
+			for(int j = 0; j <= 2; j++){
+				delta_[i + 3 * j].x = i - 1 + p_x;
+				delta_[i + 3 * j].y = j - 1 + p_y;
+			}
+		}
   }
+
   bool is_valid() const
   {
   	for(unsigned i = 0; i<delta_.size(); i++) {}
@@ -48,19 +56,19 @@ public:
   }
   void next()
   {
-  	
+  	i_++;
   }
 
   operator point2d() const	
   {
   	point2d p;
-  	p.setX(p_.getX() + delta_[i_].getX());
-  	p.setY(p_.getY() + delta_[i_].getY());
+  	p.x = p_.x + delta_[i_].x;
+  	p.y = p_.y + delta_[i_].y;
   	return p;
   }
 
 private:
-  const static std::vector<point2d> delta_;
+  static std::vector<point2d> delta_;
   unsigned i_;
   point2d p_;
 };

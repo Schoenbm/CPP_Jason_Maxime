@@ -3,19 +3,7 @@
 #include <iosfwd> // std::ostream fwd declaration
 
 
-class point2d{
-	public:
-		point2d();
-		point2d(const point2d& pPoint);
-		explicit point2d(const int pX, const int pY);
-
-		unsigned getX() const;
-		unsigned getY() const;
-
-		void setX(unsigned pX);
-		void setY(unsigned pY);
-
-	private:
+struct point2d{
 		unsigned x;
 		unsigned y;
 };

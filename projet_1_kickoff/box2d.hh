@@ -2,28 +2,17 @@
 
 #include <cstddef> // std::size_t
 #include <iosfwd>  // std::ostream fwd declaration
-
+#include "point2d.hh"
 
 // Fwd declarations
-struct point2d;
 class box2d_iterator;
 class neighb2d_iterator;
 
 
-class box2d {
+struct box2d {
 public:
-  using point      = point2d;
+  bool has(const point2d& p) const;
 
-  box2d();
-  box2d(const box2d& pBox);
-  box2d(unsigned prows, unsigned pcols);
-
-  unsigned rows() const;
-  unsigned cols() const;
-
-  bool has(const point& p) const;
-
-private:
-  unsigned nrows;
-  unsigned ncols;
+  unsigned rows;
+  unsigned cols;
 };

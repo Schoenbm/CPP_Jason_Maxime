@@ -2,18 +2,19 @@
 #include "point2d.hh"
 #include "box2d.hh"
 
-class point2d;
-class box2d;
 
 class box2d_iterator {
 public:
-  box2d_iterator(){}
-  explicit box2d_iterator(const box2d& b) : box(b){}
+
+  explicit box2d_iterator(const box2d& b)
+  {
+	box = b;
+  }
 
   void start()
   {
-	delete(current_p*);
-	current_p = new point2d(0,0);
+	current_p.x = 0;
+	current_p.y = 0;
   }
 
   bool is_valid() const
@@ -22,19 +23,14 @@ public:
   }
   void next()
   {
-	unsigned x,y;
-	if (current_p.getX() >= box.cols())
+	if (current_p.x >= box.cols)
 	{
-		x = 0;
-		y = current_p.getY() + 1;
+		current_p.x = 0;
+		current_p.y ++;
 	}
 	else{
-		 x = current_p.getX() + 1;
-		 y = current_p.getY();
+		 current_p.x ++;
 	}
-
-	delete(current_p*);
-	current_p = new point2d(x,y);
   }
 
   operator point2d() const

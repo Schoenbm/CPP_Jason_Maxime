@@ -16,6 +16,5 @@ namespace utils {
 
 // todo: Functions for printing
 
-}
 
 } // namespace utils
