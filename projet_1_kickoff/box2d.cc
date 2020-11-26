@@ -4,7 +4,7 @@
 #include "neighb2d_iterator.hh"
 #include "box2d_iterator.hh"
 
-class box2d {
+struct box2d {
 
   bool has(const point2d& p) const
   {
