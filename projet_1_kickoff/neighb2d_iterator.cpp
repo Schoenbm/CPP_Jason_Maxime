@@ -28,7 +28,16 @@ public:
 
   explicit neighb2d_iterator(const point2d& p)
   {
-  	
+  	unsigned x = p.getX();
+  	unsigned y = p.getY();
+  	delta_.push_back(*new point2d(x-1, y-1));
+  	delta_.push_back(*new point2d(x-1, y));
+  	delta_.push_back(*new point2d(x-1, y+1));
+  	delta_.push_back(*new point2d(x, y-1));
+  	delta_.push_back(*new point2d(x, y+1));
+  	delta_.push_back(*new point2d(x+1, y-1));
+  	delta_.push_back(*new point2d(x+1, y));
+  	delta_.push_back(*new point2d(x+1, y+1));
   	i_ = 0;
   	center_at(p);
   }
@@ -43,12 +52,14 @@ public:
   }
   bool is_valid() const
   {
-  	for(unsigned i = 0; i<delta_.size(); i++) {}
-  	return false;
+  	return (i_ < 8);
   }
   void next()
   {
-  	
+  	i_+=1;
+  	while (!is_valid())
+  		i_+=1;
+  	center_at(delta_[i_]);
   }
 
   operator point2d() const	
@@ -60,7 +71,7 @@ public:
   }
 
 private:
-  const static std::vector<point2d> delta_;
+  std::vector<point2d> delta_;
   unsigned i_;
   point2d p_;
 };
