@@ -41,7 +41,7 @@ public:
   	  return box_;
   }
 
-  box2d bounding_box() const
+  box2d bounding_box() const 
   {
 	  return box_;  
   }

@@ -1,9 +1,11 @@
 #pragma once
+#include "point2d.hh"
+#include "box2d.hh"
 
 #include <cstddef> // std::size_t
 
-struct point2d;
-class box2d;
+//struct point2d;
+//class box2d;
 
 class box2d_iterator {
 public:

@@ -10,12 +10,4 @@
 
 
 template <typename T>
-image2d<std::size_t> distance_map(const image2d<T>& input)
-{
-  const box2d box = input.box();
-  const unsigned max = unsigned(-1);
-  image2d<unsigned> dmap(input.bounding_box());
-
-
-  return dmap;
-}
+const image2d<std::size_t> distance_map(const image2d<T>& input);

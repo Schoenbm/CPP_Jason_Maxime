@@ -14,11 +14,8 @@ template <typename T>
 class image2d {
 public:
   using value_type      = T;
-  //using point2d      = typename box2d::point2d;
-  //using box_iterator = typename box2d::box_iterator;
-  //using n_iterator   = typename box2d::neighb2d_iterator;
 
-  explicit image2d(const domain_type& d);
+  explicit image2d(const box2d& d);
   explicit image2d(unsigned nrows, unsigned ncols);
 
   T& operator()(const point2d& p);
@@ -34,5 +31,4 @@ public:
 private:
   box2d box_;
   std::vector<T> data_;
-  static_assert(!std::is_same_v<value_type, bool>, "value_type cannot be bool");
 };

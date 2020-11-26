@@ -1,5 +1,3 @@
-#pragma once
-
 #include "box2d_iterator.hh"
 #include "image2d.hh"
 #include "neighb2d_iterator.hh"
@@ -10,7 +8,7 @@
 
 
 template <typename T>
-image2d<std::size_t> distance_map(const image2d<T>& input)
+const image2d<std::size_t> distance_map(const image2d<T>& input)
 {
   const box2d box = input.box();
   const unsigned max = unsigned(-1);
@@ -23,8 +21,32 @@ image2d<std::size_t> distance_map(const image2d<T>& input)
   std::queue<point2d> q;
   neighb2d_iterator n_iterator;
 
-  for(p.start(); p.is_valid(); p.next()){
-  	  if(input(p) == true)
+  for(box_iterator.start(); box_iterator.is_valid(); box_iterator.next()){
+  	  if(input(box_iterator) == true)
+	  {
+		dmap(box_iterator) = 0;
+		n_iterator.center_at(box_iterator);
+		for(n_iterator.start(); n_iterator.is_valid(); n_iterator.next()){
+			if(box.has(n_iterator) && (input(n_iterator) == false))
+			{
+				q.push(box_iterator);
+				break;
+			}
+		}
+	  }
+  }
+
+  while (not q.empty())
+  {
+  	  point2d p = q.front();
+	  q.pop();
+	  n_iterator.center_at(p);
+	  for(n_iterator.start(); n_iterator.is_valid(); n_iterator.next()){
+	  	  if(box.has(n_iterator) && (dmap(n_iterator) == max)){
+		  	  dmap(n_iterator) = dmap(p) + 1;
+			  q.push(n_iterator);
+		  }
+	  }
   }
   return dmap;
 }
