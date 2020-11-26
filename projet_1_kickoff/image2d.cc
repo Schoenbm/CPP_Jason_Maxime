@@ -46,14 +46,21 @@ public:
 	  return box_;  
   }
 
-  template<typename U, unsigned n>
-  void fill_with(U ( &vals)[n]){
-  	  for(unsigned i = 0; i < n; ++i)
-		data_[i] = vals[i];
+  void fill_with(const T vals[], const int pRows, const int pCols){
+  	  for(int i = 0; i < pCols; ++i){
+		for(int j = 0; j < pRows; j++){
+			data_[i + j * pCols] = vals[i + j * pCols];
+		}
+	  }
   }
+
+
 
 
 private:
   box2d box_;
   std::vector<T> data_;
 };
+
+template class image2d<int>;
+template class image2d<unsigned>;

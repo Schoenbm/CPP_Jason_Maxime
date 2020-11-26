@@ -58,10 +58,10 @@ int main()
   my_domain.cols = 18;
 
   image2d<int>         input_image(my_domain);
-  input_image.fill_with(input_image_buffer);
+  input_image.fill_with(input_image_buffer, my_domain.rows, my_domain.cols);
 
   image2d<int> expected_output_image(my_domain);
-  expected_output_image.fill_with(expected_output_image_buffer);
+  expected_output_image.fill_with(expected_output_image_buffer, my_domain.rows, my_domain.cols);
 
   //std::cout << input_image << "---\n";
   //std::cout << expected_output_image << "---\n";

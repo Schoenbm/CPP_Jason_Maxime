@@ -10,4 +10,4 @@
 
 
 template <typename T>
-const image2d<std::size_t> distance_map(const image2d<T>& input);
+const image2d<unsigned> distance_map(const image2d<T>& input);

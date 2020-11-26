@@ -24,8 +24,7 @@ public:
   const box2d& box() const;
   box2d bounding_box() const;
 
-  template<typename U, unsigned n>
-  void fill_with(U ( &vals)[n]);
+  void fill_with(const T vals[],const int pRows,const int pCols);
 
 
 private:
