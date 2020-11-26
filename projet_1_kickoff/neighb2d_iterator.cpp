@@ -27,7 +27,15 @@ public:
   }
 
   explicit neighb2d_iterator(const point2d& p)
-  { 	
+  {
+  	delta_.push_back(*new point2d(0,0));
+  	delta_.push_back(*new point2d(0,0));
+  	delta_.push_back(*new point2d(0,0));
+  	delta_.push_back(*new point2d(0,0));
+  	delta_.push_back(*new point2d(0,0));
+  	delta_.push_back(*new point2d(0,0));
+  	delta_.push_back(*new point2d(0,0));
+  	delta_.push_back(*new point2d(0,0));
   	i_ = 0;
   	center_at(p);
   }
@@ -39,6 +47,7 @@ public:
 
   void start()
   {
+		i_ = 0;
 		int p_x = p_.x;
 		int p_y = p_.y;
 		for(int i = 0; i <= 2; i++){
@@ -51,8 +60,7 @@ public:
 
   bool is_valid() const
   {
-  	for(unsigned i = 0; i<delta_.size(); i++) {}
-  	return false;
+  	return (i_ < 8);
   }
   void next()
   {
