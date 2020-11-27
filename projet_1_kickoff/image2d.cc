@@ -1,4 +1,4 @@
-#include "box2d.hh"
+#include "image2d.hh"
 
 
 #include <cassert>     // assert
