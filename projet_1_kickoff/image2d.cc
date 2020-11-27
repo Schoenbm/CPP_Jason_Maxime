@@ -1,6 +1,6 @@
 #include "image2d.hh"
 
-
+#include <ostream>
 #include <cassert>     // assert
 #include <cstddef>     // std::size_t
 #include <type_traits> // std::is_same
@@ -14,7 +14,6 @@ template <typename T>
 image2d<T>::image2d(unsigned nrows, unsigned ncols)
 {
 	  box_.setRowsandCols(nrows, ncols);
-	  data_ =
 }
 
 template <typename T>
@@ -48,11 +47,25 @@ template <typename T>
   void image2d<T>::fill_with(const T vals[], const int pRows, const int pCols){
   	  for(int i = 0; i < pCols; ++i){
 		for(int j = 0; j < pRows; j++){
-			std::cout <<i<<","<<j<<" = "<<data_[i+j * pCols] <<std::endl;
 			data_[i + j * pCols] = vals[i + j * pCols];
 		}
 	  }
   }
+
+ // template <typename T>
+ // std::ostream& operator<<(std::ostream& oss, const image2d<T>& rhs)
+//{
+ // box2d& pBox = rhs.bounding_box();
+ // for (unsigned i = 0; i < pBox.getCols(); ++i) {
+ //   oss << "|";
+ //   for (unsigned j = 0; j < pBox.getRows() - 1; ++j) {
+ //     oss << rhs(i, j) << ", ";
+ //   }
+ //   oss << rhs(i, pBox.getRows() - 1) << "|\n";
+ // }
+
+ // return oss;
+//}
 
 template class image2d<int>;
 template class image2d<unsigned>;

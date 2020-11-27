@@ -3,7 +3,7 @@
 #include "box2d.hh"
 #include "box2d_iterator.hh"
 
-#include <iostream>
+#include <iosfwd>
 #include <cassert>     // assert
 #include <cstddef>     // std::size_t
 #include <type_traits> // std::is_same
@@ -31,8 +31,12 @@ public:
 
   void fill_with(const T vals[],const int pRows,const int pCols);
 
+  
 
 private:
   box2d box_;
   std::vector<T> data_;
 };
+
+//template <typename T>
+//std::ostream& operator<<(std::ostream& oss, const image2d<T>& rhs);
