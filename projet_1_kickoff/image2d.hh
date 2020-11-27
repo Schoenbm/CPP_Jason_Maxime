@@ -3,7 +3,7 @@
 #include "box2d.hh"
 #include "box2d_iterator.hh"
 
-
+#include <iostream>
 #include <cassert>     // assert
 #include <cstddef>     // std::size_t
 #include <type_traits> // std::is_same

@@ -101,16 +101,26 @@ int main()
   box2d my_domain;
   my_domain.setRowsandCols(22, 18);
 
+  std::cout <<"domain defined"<<std::endl;
+
   image2d<int>         input_image(my_domain);
+
+  std::cout <<"input constructed"<<std::endl;
   input_image.fill_with(input_image_buffer, my_domain.getRows(), my_domain.getCols());
+
+  std::cout <<"input defined"<<std::endl;
 
   image2d<int> expected_output_image(my_domain);
   expected_output_image.fill_with(expected_output_image_buffer, my_domain.getRows(), my_domain.getCols());
+
+  std::cout <<"output defined"<<std::endl;
 
   //std::cout << input_image << "---\n";
   //std::cout << expected_output_image << "---\n";
 
   const auto dmap = distance_map(input_image);
+
+    std::cout <<"dmap defined"<<std::endl;
   //std::cout << dmap << "---\n";
 
   //std::cout << "Distance map OK ? " << (expected_output_image == dmap ? "yes" : "no") << std::endl;

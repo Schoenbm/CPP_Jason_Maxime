@@ -13,6 +13,7 @@ template <typename T>
 image2d<T>::image2d(unsigned nrows, unsigned ncols)
 {
 	  box_.setRowsandCols(nrows, ncols);
+	  data_ =
 }
 
 template <typename T>
@@ -46,6 +47,7 @@ template <typename T>
   void image2d<T>::fill_with(const T vals[], const int pRows, const int pCols){
   	  for(int i = 0; i < pCols; ++i){
 		for(int j = 0; j < pRows; j++){
+			std::cout <<i<<","<<j<<" = "<<data_[i+j * pCols] <<std::endl;
 			data_[i + j * pCols] = vals[i + j * pCols];
 		}
 	  }
