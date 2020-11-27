@@ -7,7 +7,8 @@
 #include <vector>      // std::vector
 
 template <typename T>
-image2d<T>::image2d(const box2d& d): box_(d){}
+image2d<T>::image2d(const box2d& d): box_(d) , data_(box_.getRows()*box_.getCols())
+{}
 
 template <typename T>  
 image2d<T>::image2d(unsigned nrows, unsigned ncols)
