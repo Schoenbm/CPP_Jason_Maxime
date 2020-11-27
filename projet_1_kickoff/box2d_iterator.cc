@@ -1,44 +1,36 @@
 #include <cstddef> // std::size_t
-#include "point2d.hh"
-#include "box2d.hh"
+#include "box2d_iterator.hh"
 
 
-class box2d_iterator {
-public:
-
-  explicit box2d_iterator(const box2d& b)
+    box2d_iterator::box2d_iterator(const box2d& b)
+    : box_(b)
   {
-	box = b;
   }
 
-  void start()
+  void box2d_iterator::start()
   {
-	current_p.x = 0;
-	current_p.y = 0;
+      p_.x = 0;
+      p_.y = 0;
   }
 
-  bool is_valid() const
+  bool box2d_iterator::is_valid() const
   {
-	return box.has(current_p);
+	return box_.has(p_);
   }
-  void next()
+  void box2d_iterator::next()
   {
-	if (current_p.x >= box.getCols())
+	if (p_.x >= box_.getCols())
 	{
-		current_p.x = 0;
-		current_p.y ++;
+		p_.x = 0;
+		p_.y ++;
 	}
 	else{
-		 current_p.x ++;
+		 p_.x ++;
 	}
   }
 
-  operator point2d() const
+  box2d_iterator::operator point2d() const
   {
-	return current_p;
+	return p_;
   }
 
-private:
-  point2d current_p;
-  box2d box;
-};

@@ -18,6 +18,6 @@ public:
   operator point2d() const;
 
 private:
-  point2d current_p;
-  box2d box;
+  point2d p_;
+  box2d box_;
 };

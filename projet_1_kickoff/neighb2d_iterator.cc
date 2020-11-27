@@ -7,14 +7,14 @@
 class neighb2d_iterator {
 public:
   neighb2d_iterator(){}
-  
+
   neighb2d_iterator(const neighb2d_iterator& n)
   	:neighb2d_iterator{n.p_}
   {
   	delta_ = std::vector<point2d>(n.delta_);
   }
-  
-  neighb2d_iterator& operator=(const neighb2d_iterator& n)
+
+  neighb2d_iterator& neighb2d::operator=(const neighb2d_iterator& n)
   {
   	if (&n != this)
   	{
@@ -66,7 +66,7 @@ public:
   	i_++;
   }
 
-  operator point2d() const	
+  operator point2d() const
   {
   	point2d p;
   	p.x = p_.x + delta_[i_].x;
