@@ -6,7 +6,7 @@
 
 
 template <typename T>
-const image2d<unsigned> distance_map(const image2d<T>& input)
+inline image2d<unsigned> distance_map(const image2d<T>& input)
 {
   const box2d box = input.box();
   const unsigned max = unsigned(-1);
@@ -48,3 +48,4 @@ const image2d<unsigned> distance_map(const image2d<T>& input)
   }
   return dmap;
 }
+

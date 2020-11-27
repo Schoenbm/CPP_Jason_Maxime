@@ -1,9 +1,9 @@
 #pragma once
-
+#include "point2d.hh"
 #include <cstddef> // std::size_t
 #include <vector>  // std::vector
 
-class point2d;
+struct point2d;
 
 class neighb2d_iterator {
 public:
