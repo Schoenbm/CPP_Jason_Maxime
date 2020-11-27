@@ -66,7 +66,7 @@ int main()
   //std::cout << input_image << "---\n";
   //std::cout << expected_output_image << "---\n";
 
-  const auto dmap = distance_map(input_image);
+  image2d<unsigned> dmap = distance_map<int>(input_image);
   //std::cout << dmap << "---\n";
 
   //std::cout << "Distance map OK ? " << (expected_output_image == dmap ? "yes" : "no") << std::endl;
