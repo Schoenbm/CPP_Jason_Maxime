@@ -5,15 +5,30 @@
 #include "point2d.hh"
 
 // Fwd declarations
-class box2d_iterator;
-class neighb2d_iterator;
 
 
-struct box2d {
-  public:
+class box2d {
 
-  bool has(const point2d& p) const;
+    public :
+        bool has(const point2d& p) const;
 
-  unsigned rows;
-  unsigned cols;
+        unsigned getRows() const
+        {
+            return this->rows;
+        }
+
+        unsigned getCols() const
+        {
+            return this->cols;
+        }
+
+        void setRowsandCols(unsigned prows, unsigned pcols)
+        {
+            this->rows = prows;
+            this->cols = pcols;
+        }
+
+    private :
+    unsigned rows;
+    unsigned cols;
 };

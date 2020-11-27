@@ -1,6 +1,4 @@
-#include "box2d_iterator.hh"
-#include "image2d.hh"
-#include "neighb2d_iterator.hh"
+#include "distance_map.hh"
 
 #include <cstddef> // std::size_t
 #include <limits>  // std::numeric_limits

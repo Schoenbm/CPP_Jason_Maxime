@@ -2,7 +2,7 @@
 
 #include "box2d.hh"
 #include "box2d_iterator.hh"
-#include "utils.hh"
+
 
 #include <cassert>     // assert
 #include <cstddef>     // std::size_t
@@ -23,6 +23,11 @@ public:
 
   const box2d& box() const;
   box2d bounding_box() const;
+
+  void setbox (unsigned prows, unsigned pcols)
+  {
+      this->box_.setRowsandCols(prows, pcols);
+  }
 
   void fill_with(const T vals[],const int pRows,const int pCols);
 

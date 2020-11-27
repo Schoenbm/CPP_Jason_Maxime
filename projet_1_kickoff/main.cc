@@ -54,14 +54,13 @@ constexpr int expected_output_image_buffer[] = {13, 12, 11, 10, 9, 8, 7, 6, 5, 4
 int main()
 {
   box2d my_domain;
-  my_domain.rows = 22;
-  my_domain.cols = 18;
+  my_domain.setRowsandCols(22, 18);
 
   image2d<int>         input_image(my_domain);
-  input_image.fill_with(input_image_buffer, my_domain.rows, my_domain.cols);
+  input_image.fill_with(input_image_buffer, my_domain.getRows(), my_domain.getCols());
 
   image2d<int> expected_output_image(my_domain);
-  expected_output_image.fill_with(expected_output_image_buffer, my_domain.rows, my_domain.cols);
+  expected_output_image.fill_with(expected_output_image_buffer, my_domain.getRows(), my_domain.getCols());
 
   //std::cout << input_image << "---\n";
   //std::cout << expected_output_image << "---\n";

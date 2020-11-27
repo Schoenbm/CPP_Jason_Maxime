@@ -1,5 +1,5 @@
 #include "box2d.hh"
-#include "utils.hh"
+
 
 #include <cassert>     // assert
 #include <cstddef>     // std::size_t
@@ -18,21 +18,20 @@ public:
   explicit image2d(const box2d& d): box_(d){}
   explicit image2d(unsigned nrows, unsigned ncols)
   {
-  	  box_.rows = nrows;
-	  box_.cols = ncols;
+  	  box_.setRowsandCols(nrows, ncols);
   }
 
   T& operator()(const point2d& p)
   {
 	if(box_.has(p))
-		 return data_[p.x + p.y * box_.rows];
-	return data_[0];		
+		 return data_[p.x + p.y * box_.getRows()];
+	return data_[0];
   }
 
   T operator()(const point2d& p) const
   {
   	if(box_.has(p))
-		 return data_[p.x + p.y * box_.rows];
+		 return data_[p.x + p.y * box_.getRows()];
 	return data_[0];
   }
 
@@ -41,9 +40,9 @@ public:
   	  return box_;
   }
 
-  box2d bounding_box() const 
+  box2d bounding_box() const
   {
-	  return box_;  
+	  return box_;
   }
 
   void fill_with(const T vals[], const int pRows, const int pCols){

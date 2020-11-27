@@ -1,15 +1,12 @@
 #include <cstddef> // std::size_t
 #include <iosfwd>  // std::ostream fwd declaration
 #include "point2d.hh"
+#include "box2d.hh"
 
-struct box2d {
 
-  bool has(const point2d& p) const
+  bool box2d::has(const point2d& p) const
   {
-	  return( p.x < rows && p.y < cols);
+	  return( p.x < this->rows && p.y < this->cols);
   }
 
-  unsigned rows;
-  unsigned cols;
-};
 

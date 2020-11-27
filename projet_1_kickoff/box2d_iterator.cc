@@ -23,7 +23,7 @@ public:
   }
   void next()
   {
-	if (current_p.x >= box.cols)
+	if (current_p.x >= box.getCols())
 	{
 		current_p.x = 0;
 		current_p.y ++;

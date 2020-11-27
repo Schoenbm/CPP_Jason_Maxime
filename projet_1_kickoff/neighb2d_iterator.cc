@@ -2,8 +2,7 @@
 #include <vector>  // std::vector
 
 #include "point2d.hh"
-#include "box2d.hh"
-#include "box2d_iterator.hh"
+
 
 class neighb2d_iterator {
 public:

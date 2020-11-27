@@ -1,19 +1,31 @@
-OBJ= point2d.o box2d.o neighb2d_iterator.o box2d_iterator.o image2d.o distance_map.o main.o projetc++
+CXX = g++
+CXXFLAGS = -Wall -pedantic -Wextra -Werror -ansi -std=c++2a # -ggdb
+LDFLAGS =
+INCLUDES =
+EXEC_NAME = projetc++
+SRC = $(wildcard *.cc)
+OBJ = $(SRC:.cc=.o)
 
+<<<<<<< Updated upstream
 CC = g++ 
 CCFLAGS = -std=c++14 -Wextra -pedantic -g -DLINUX -Wall
+=======
+all : $(EXEC_NAME)
+>>>>>>> Stashed changes
 
-obj:	$(OBJ)
+$(EXEC_NAME) : $(OBJ)
+	$(CXX) -o $(EXEC_NAME) $^ $(LDFLAGS)
+
+%.o : %.cc
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ -c $<
 
 
-clean:
-	rm -f $(OBJ); rm -f *.o
+.PHONY : clean
 
-.SUFFIXES:	.exe
+clean :
+	rm -f $(EXEC_NAME) *.o
 
-.c.exe:	
-	$(CC) $(CCFLAGS) $< $(OBJ) -lm -o $@
-
+<<<<<<< Updated upstream
 projetc++ : main.o distance_map.o box2d.o box2d_iterator.o neighb2d_iterator.o point2d.o image2d.o
 	    $(CC) $(CCFLAGS) main.o distance_map.o image2d.o box2d.o box2d_iterator.o neighb2d_iterator.o point2d.o -o projetc++
 		
@@ -37,3 +49,7 @@ neighb2d_iterator.o : point2d.hh point2d.cc box2d.hh box2d.cc box2d_iterator.hh 
 
 point2d.o : point2d.hh
 		$(CC) $(CCFLAGS) -c -lm point2d.cc
+=======
+run : $(EXEC_NAME)
+	./$(EXEC_NAME)
+>>>>>>> Stashed changes
