@@ -1,20 +1,29 @@
 #include <cstddef> // std::size_t
 #include <vector>  // std::vector
 
-#include "point2d.hh"
+#include "neighb2d_iterator.hh"
 
 
-class neighb2d_iterator {
-public:
-  neighb2d_iterator(){}
+  neighb2d_iterator::neighb2d_iterator()
+  : i_(0)
+  {
+    delta_.push_back(*new point2d());
+  	delta_.push_back(*new point2d());
+  	delta_.push_back(*new point2d());
+  	delta_.push_back(*new point2d());
+  	delta_.push_back(*new point2d());
+  	delta_.push_back(*new point2d());
+  	delta_.push_back(*new point2d());
+  	delta_.push_back(*new point2d());
+  }
 
-  neighb2d_iterator(const neighb2d_iterator& n)
+  neighb2d_iterator::neighb2d_iterator(const neighb2d_iterator& n)
   	:neighb2d_iterator{n.p_}
   {
   	delta_ = std::vector<point2d>(n.delta_);
   }
 
-  neighb2d_iterator& neighb2d::operator=(const neighb2d_iterator& n)
+  neighb2d_iterator& neighb2d_iterator::operator=(const neighb2d_iterator& n)
   {
   	if (&n != this)
   	{
@@ -25,7 +34,7 @@ public:
   	return *this;
   }
 
-  explicit neighb2d_iterator(const point2d& p)
+    neighb2d_iterator::neighb2d_iterator(const point2d& p)
   {
   	delta_.push_back(*new point2d());
   	delta_.push_back(*new point2d());
@@ -39,12 +48,12 @@ public:
   	center_at(p);
   }
 
-  void center_at(const point2d& p)
+  void neighb2d_iterator::center_at(const point2d& p)
   {
   	p_ = p;
   }
 
-  void start()
+  void neighb2d_iterator::start()
   {
 		i_ = 0;
 		int p_x = p_.x;
@@ -57,16 +66,16 @@ public:
 		}
   }
 
-  bool is_valid() const
+  bool neighb2d_iterator::is_valid() const
   {
   	return (i_ < 8);
   }
-  void next()
+  void neighb2d_iterator::next()
   {
   	i_++;
   }
 
-  operator point2d() const
+  neighb2d_iterator::operator point2d() const
   {
   	point2d p;
   	p.x = p_.x + delta_[i_].x;
@@ -74,8 +83,4 @@ public:
   	return p;
   }
 
-private:
-  static std::vector<point2d> delta_;
-  unsigned i_;
-  point2d p_;
-};
+

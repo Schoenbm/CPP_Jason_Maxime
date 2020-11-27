@@ -8,8 +8,8 @@ struct point2d;
 class neighb2d_iterator {
 public:
   neighb2d_iterator();
-  neighb2d_iterator(const neighb2d_iterator&) = default;
-  neighb2d_iterator& operator=(const neighb2d_iterator&) = default;
+  neighb2d_iterator(const neighb2d_iterator&);
+  neighb2d_iterator& operator=(const neighb2d_iterator&);
 
   explicit neighb2d_iterator(const point2d& p);
 
@@ -22,7 +22,7 @@ public:
   operator point2d() const;
 
 private:
-  const static std::vector<point2d> delta_;
+  std::vector<point2d> delta_;
   unsigned i_;
   point2d p_;
 };
